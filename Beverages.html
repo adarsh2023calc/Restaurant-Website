@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beverages</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    
+  body {
+    background-image: url('beverages.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    }
+
+    .navbar-brand {
+    font-family: 'Pacifico', cursive;
+    box-shadow: 6px 6px 10px whitesmoke, -6px -6px 10px whitesmoke;
+    }
+
+    .breakfast-heading {
+      font-family: 'Pacifico', cursive;
+      font-size: 48px;
+      text-align: center;
+      margin: 20px 0;
+      color: whitesmoke;
+    }
+
+    .breakfast-item-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      position: relative;
+      background-color: beige;
+    }
+
+    .breakfast-item-card .card-body {
+      position: relative;
+      box-shadow: 6px 6px 10px black, -6px -6px 10px black;
+    }
+
+    .item-name {
+      text-align: left;
+      font-family: 'Courier New', monospace;
+    }
+
+    .prices {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      transform: translateY(+30%);
+      font-family: 'Courier New', monospace;
+    }
+
+    .divider-line {
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      margin: 5px 0;
+    }
+
+    .card-text {
+      background-color: beige(255, 255, 255, 0.8);
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .veg-icon,
+    .nonveg-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    @media (max-width: 576px) {
+      .breakfast-heading {
+        font-size: 36px;
+      }
+
+      .breakfast-item-card {
+        max-width: 100%;
+      }
+
+      .card-body {
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .breakfast-heading {
+        font-size: 24px;
+      }
+    }
+
+    .total-cost-container {
+        text-align: center;
+        margin: 20px 0;
+        padding: 20px;
+        background-color: burlywood;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .total-cost-container h3 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'Courier New', monospace;
+    }
+
+    .total-cost-container p {
+        font-size: 20px;
+        color: purple; 
+        margin: 10px 0;
+    }
+    
+    .total-cost-container b {
+        display: inline-block;
+        width: 120px; 
+        text-align: left;
+    }
+    
+    .quantity-input {
+        width: 60px; 
+        height: 30px; 
+        padding: 2px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        text-align: center;
+        margin-left: 10px; 
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Ratatouille</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h1 class="breakfast-heading">Cocktails/Mocktails</h1>
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="15.00" data-member-price="13.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Bellini</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A cocktail made with peach puree and Prosecco.</p>
+            <div class="prices">
+              <p>Guest Price: $15.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $13.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="15.00" data-member-price="12.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Negroni Sbagliato</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A variation of the classic Negroni with Prosecco instead of gin.</p>
+            <div class="prices">
+              <p>Guest Price: $15.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $12.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="10.00" data-member-price="8.25" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Virgin Aperol Spritz</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A non-alcoholic version of the popular Italian aperitif,<br> made with Aperol, soda, and orange slices.</p>
+            <div class="prices">
+              <p>Guest Price: $10.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $8.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="6.00" data-member-price="5.25" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Italian Basil Lemonade</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Lemonade infused with fresh basil leaves for a herbal twist.</p>
+            <div class="prices">
+              <p>Guest Price: $6.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $5.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="15.00" data-member-price="12.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>San Bitter Spritz</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A non-alcoholic version of the classic Aperol Spritz,<br> using San Bitter and soda.
+            </p>
+            <div class="prices">
+              <p>Guest Price: $15.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $12.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="12.00" data-member-price="9.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Amaretto Sour</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A non-alcoholic version of the classic cocktail made with<br> amaretto-flavored syrup, lemon juice, and a splash of soda.</p>
+            <div class="prices">
+              <p>Guest Price: $12.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $9.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="8.00" data-member-price="6.25" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Espresso Tonic</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Chilled tonic water served with a shot of espresso and a <br>twist of lemon for a unique coffee mocktail.</p>
+            <div class="prices">
+              <p>Guest Price: $8.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $6.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="6.00" data-member-price="4.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Limonata</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A refreshing Italian lemonade that strikes the perfect<br> balance between zesty lemons, sugar, and effervescent<br> sparkling water.</p>
+            <div class="prices">
+              <p>Guest Price: $6.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $4.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="10.00" data-member-price="7.25" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Shirley Temple</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A classic and sweet mocktail featuring ginger ale or <br>lemon-lime soda mixed with grenadine syrup, garnished<br> with a maraschino cherry.</p>
+            <div class="prices">
+              <p>Guest Price: $10.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $7.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="15.00" data-member-price="12.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Margarita</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A classic and refreshing cocktail made with tequila, triple sec,<br> lime juice, and a salt-rimmed glass, offering a perfect balance<br> of sweet and tangy flavors.</p>
+            <div class="prices">
+              <p>Guest Price: $15.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $12.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="total-cost-container">
+    <h3>Total Cost:</h3>
+    <p><b>Guest Price:</b> <span id="total-guest-cost">$0.00</span></p>
+    <p><b>Member Price:</b> <span id="total-member-cost">$0.00</span></p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+
+
+    function calculateTotal() {
+    
+    const selectedItems = document.querySelectorAll('input[type="checkbox"]:checked');
+  
+    let totalGuestCost = 0;
+    let totalMemberCost = 0;
+  
+    
+    selectedItems.forEach((item) => {
+      const priceGuest = parseFloat(item.getAttribute('data-guest-price'));
+      const priceMember = parseFloat(item.getAttribute('data-member-price'));
+  
+      
+      const quantity = parseInt(item.parentElement.querySelector('.quantity-input').value);
+  
+      totalGuestCost += priceGuest * quantity;
+      totalMemberCost += priceMember * quantity;
+    });
+  
+    
+    const totalGuestCostElement = document.getElementById('total-guest-cost');
+    const totalMemberCostElement = document.getElementById('total-member-cost');
+  
+    totalGuestCostElement.textContent = `$${totalGuestCost.toFixed(2)}`;
+    totalMemberCostElement.textContent = `$${totalMemberCost.toFixed(2)}`;
+  }
+  
+  </script>
+</body>
+
+</html>

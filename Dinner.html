@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dinner Menu</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  
+  <style>
+    
+  body {
+    background-image: url('dinner.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    }
+
+    .navbar-brand {
+    font-family: 'Pacifico', cursive;
+    box-shadow: 6px 6px 10px whitesmoke, -6px -6px 10px whitesmoke;
+    }
+
+    .breakfast-heading {
+      font-family: 'Pacifico', cursive;
+      font-size: 48px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .breakfast-item-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      position: relative;
+      background-color: beige;
+    }
+
+    .breakfast-item-card .card-body {
+      position: relative;
+      box-shadow: 6px 6px 10px grey, -6px -6px 10px black;
+    }
+
+    .item-name {
+      text-align: left;
+      font-family: 'Courier New', monospace;
+    }
+
+    .prices {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      transform: translateY(+30%);
+      font-family: 'Courier New', monospace;
+    }
+
+    .divider-line {
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      margin: 5px 0;
+    }
+
+    .card-text {
+      background-color: beige(255, 255, 255, 0.8);
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .veg-icon,
+    .nonveg-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    @media (max-width: 576px) {
+      .breakfast-heading {
+        font-size: 36px;
+      }
+
+      .breakfast-item-card {
+        max-width: 100%;
+      }
+
+      .card-body {
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .breakfast-heading {
+        font-size: 24px;
+      }
+    }
+
+    .total-cost-container {
+        text-align: center;
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #f8f8f8;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .total-cost-container h3 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'Courier New', monospace;
+    }
+
+    .total-cost-container p {
+        font-size: 20px;
+        color: #FFA500; 
+        margin: 10px 0;
+    }
+    
+    .total-cost-container b {
+        display: inline-block;
+        width: 120px; 
+        text-align: left;
+    }
+    
+    .quantity-input {
+        width: 60px; 
+        height: 30px; 
+        padding: 2px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        text-align: center;
+        margin-left: 10px; 
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Ratatouille</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h1 class="breakfast-heading">Dinner Menu</h1>
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="30.00" data-member-price="27.75" onclick="calculateTotal()">
+              <img class="nonveg-icon" src="non-veg-icon.svg" alt="nonveg-icon"><b>Saltimbocca alla Romana</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Thin slices of veal or chicken wrapped with prosciutto<br> and sage, cooked in white wine and butter.</p>
+            <div class="prices">
+              <p>Guest Price: $30.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $27.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="25.00" data-member-price="23.25" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Gnocchi al Gorgonzola</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Soft potato dumplings served in a creamy Gorgonzola<br> cheese sauce, garnished with chopped walnuts.</p>
+            <div class="prices">
+              <p>Guest Price: $25.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $23.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="35.00" data-member-price="32.25" onclick="calculateTotal()">
+              <img class="nonveg-icon" src="non-veg-icon.svg" alt="nonveg-icon"><b>Pesce all'Acqua Pazza</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">"Fish in Crazy Water," a fish fillet cooked in a flavorful<br> broth of tomatoes, garlic, olives, and capers.</p>
+            <div class="prices">
+              <p>Guest Price: $35.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $32.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="18.00" data-member-price="15.75" onclick="calculateTotal()">
+              <img class="nonveg-icon" src="non-veg-icon.svg" alt="nonveg-icon"><b>Involtini di Melanzane</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Eggplant rolls filled with a delectable blend of ricotta<br> cheese and spinach, baked to perfection with tomato<br> sauce and oozy mozzarella.</p>
+            <div class="prices">
+              <p>Guest Price: $18.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $15.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="40.00" data-member-price="35.75" onclick="calculateTotal()">
+              <img class="nonveg-icon" src="non-veg-icon.svg" alt="nonveg-icon"><b>Stinco di Maiale</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Slow-cooked pork shank seasoned with garlic, rosemary,<br> and white wine.</p>
+            <div class="prices">
+              <p>Guest Price: $40.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $35.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="25.00" data-member-price="22.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Risotto alla Milanese</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Creamy saffron-infused risotto, often served as an <br>accompaniment to Osso Buco.</p>
+            <div class="prices">
+              <p>Guest Price: $25.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $22.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="23.00" data-member-price="21.25" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Orecchiette con Cime di Rapa</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">"Little ears" pasta with sautéed broccoli rabe, garlic,<br> chili flakes, and Pecorino cheese.</p>
+            <div class="prices">
+              <p>Guest Price: $23.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $21.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="15.00" data-member-price="12.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Pasta Fagioli</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Hearty Italian soup with pasta and beans in a flavorful<br> tomato broth.</p>
+            <div class="prices">
+              <p>Guest Price: $15.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $12.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="18.00" data-member-price="16.25" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Sheet Pan Panzanella</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A vibrant Italian bread salad featuring fresh vegetables and<br> croutons, served on a single sheet pan.</p>
+            <div class="prices">
+              <p>Guest Price: $18.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $16.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="12.00" data-member-price="9.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Flatbread Pizza</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A scrumptious fusion of classic pizza toppings on a thin,<br> crispy flatbread crust, bursting with flavors in every bite.</p>
+            <div class="prices">
+              <p>Guest Price: $12.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $9.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="total-cost-container">
+    <h3>Total Cost:</h3>
+    <p><b>Guest Price:</b> <span id="total-guest-cost">$0.00</span></p>
+    <p><b>Member Price:</b> <span id="total-member-cost">$0.00</span></p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+
+
+    function calculateTotal() {
+    
+    const selectedItems = document.querySelectorAll('input[type="checkbox"]:checked');
+  
+    let totalGuestCost = 0;
+    let totalMemberCost = 0;
+  
+    
+    selectedItems.forEach((item) => {
+      const priceGuest = parseFloat(item.getAttribute('data-guest-price'));
+      const priceMember = parseFloat(item.getAttribute('data-member-price'));
+  
+      
+      const quantity = parseInt(item.parentElement.querySelector('.quantity-input').value);
+  
+      totalGuestCost += priceGuest * quantity;
+      totalMemberCost += priceMember * quantity;
+    });
+  
+    
+    const totalGuestCostElement = document.getElementById('total-guest-cost');
+    const totalMemberCostElement = document.getElementById('total-member-cost');
+  
+    totalGuestCostElement.textContent = `$${totalGuestCost.toFixed(2)}`;
+    totalMemberCostElement.textContent = `$${totalMemberCost.toFixed(2)}`;
+  }
+  
+  </script>
+</body>
+
+</html>

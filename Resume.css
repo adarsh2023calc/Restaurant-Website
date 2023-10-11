@@ -1,0 +1,60 @@
+body
+{
+    background-color: gainsboro;
+    border: 3px solid maroon;
+    padding: 10px;
+    margin: 25px;
+}
+@media screen and (max-width: 480px)
+{
+    body{
+        background-color:lightblue;
+    }
+}
+h1{
+    text-align: center;
+    border-bottom: 2px solid black;
+    font-family: 'Times New Roman', Times, serif;
+}
+h2{
+    padding-top: 2em;
+    padding-left: 12em;
+    border-top: 1px solid black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+}
+h3
+{
+    padding-left: 18em
+}
+img
+{
+    margin-left: 33em;
+    border: 5px solid blue;
+
+}
+ul
+{
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   padding-left: 20em;
+}
+table,th,td
+{
+    text-align: center;
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    margin-left: 19em;
+}
+th
+{
+    background-color:goldenrod;
+}
+td
+{
+    background-color: aqua;
+}
+footer
+{
+    margin-top:3em;
+}

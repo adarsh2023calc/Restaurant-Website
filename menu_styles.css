@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.context-dark, .bg-gray-dark, .bg-primary {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+  color: #ffffff;
+}
+.nav-list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+  margin-left: 0;
+  opacity: 1;
+  visibility: visible;
+  text-decoration:none ;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+i{
+  width: 70px;
+}
+.social-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 23px;
+  font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.social-container .col {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+  content: "\f14f";
+  font: 400 21px/1 "Material Design Icons";
+  color: #4d6de6;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: -28px;
+  margin-right: 7px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .22s ease;
+}
+
+.col-sm-4{
+  color:white;
+  background-color:black;
+  text-align: center;
+}
+.col-sm-4 p{
+  color:antiquewhite;
+}
+h2{
+  text-align: center;
+  color:rgb(0, 140, 69);
+}
+.contact-list{
+  font-size: 2.0rem;
+  color:aliceblue;
+}
+.col-10 p{
+  font-size: 20px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  color: white;
+}
+p{
+  font-size: 20px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+  color: black;
+}
+
+hr{
+  width:auto;
+  background-color: black;
+}
+
+/* CSS variables */
+
+:root{
+    --navbar-height:100px;
+}
+#login div{
+    display: flex;
+    height: 100px;
+    justify-content: center; /*center vertically */
+    align-items: center; /* center horizontally */
+    background: indigo;
+    padding: 10px;
+  }
+
+
+
+    
+
+#logo{
+    margin: 40px 50px;
+
+}
+#logo img{
+    max-width:150px;
+    margin-top: 1px;
+    margin: 40px 40px;
+    width:70%;
+    display:flex;
+    height: 75px;
+    z-index: -1;
+    cursor: pointer;
+    
+    
+}
+
+.navbar-expand-lg{
+    position: relative;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 50px;
+    background-color:  rgba(24, 11, 11, 1);
+    height:300px;
+    font-size: 20px;
+    justify-content:center;
+    color:yellow;
+
+}
+.navbar{
+    display:inline-flex;
+}
+.navbar{
+    list-style-type: style none;
+    font-size: 1.3rem;
+    font-size: 18px;
+    justify-items: center;
+
+}
+a{
+  text-decoration: none;
+}
+.navbar ul li ,a{
+    color:yellow;
+    display: inline-block;
+    list-style: none;
+    padding: 23px 22px;
+    text-decoration: none;
+    border-radius: 20px;
+    justify-items: center;
+    margin:0 15px;
+
+
+}
+.navbar ul li ,a::after{
+  color:yellow;
+  display: inline-block;
+  list-style-type: style;
+  padding: 23px 22px;
+  border-radius: 20px;
+  justify-items: center;
+  margin:0 15px;
+  text-decoration: none;
+  
+
+}
+  .navbar ul li ,a:hover{
+    color:#633c05;
+    background-color:white;
+    border-radius: 20px;
+    list-style: none;
+
+}
+
+
+.navbar  ul li ,a:hover:after{
+  background-color: rgb(235, 215, 215);
+  width:100px;
+  border-radius: 20px;
+  color:yellow;
+  text-decoration: none;
+}
+.navbar::before{
+     content: "";
+    background-color: #fff;
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    z-index: -1;
+    opacity:0.70;
+    text-decoration: none;
+}
+
+#home{
+    display: flex;
+    text-align: center;
+    padding: 0px;
+    justify-content: center;
+}
+#h-primary{
+    font-size: 2 rem;
+    padding: 0px;
+}
+html{
+  scroll-behavior: smooth;
+}
+    .container
+    {
+    background-color:rgb(152, 164, 60);
+    padding-bottom:10%;
+    border-radius: 5px;
+    color:white;
+    margin-top:10%;
+    margin-left:35%;
+    
+    margin-bottom: 50px;
+    justify-content: center;
+    align-content: center;
+    }
+  .container .title 
+    {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+    
+    }
+  
+  .container .title::before {
+    content: "";
+    position: absolute;
+    height: 3.5px;
+    width: 30px;
+    background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+    left: 0;
+    bottom: 0;
+  }
+  
+
+  
+   
+  h1{
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    justify-content: center;
+    }
+.container h2{
+  color:black;
+}

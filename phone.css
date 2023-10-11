@@ -1,0 +1,37 @@
+
+.navbar-expand-lg{
+    flex-direction: column;
+    overflow: scroll;
+    display:flex;
+}
+.col-10{
+    justify-content: center;
+}
+
+.navbar ul ,li{
+    justify-items: center;
+    font-size:1px;
+}
+.navbar ul li ,a{
+
+    height: 0px;
+    border-radius: 2px;
+    flex-direction: column;
+    font-size:1px;
+
+}
+.navbar ul{
+    flex-direction: column;
+    font-size:1px;
+}
+.container{
+    flex-direction: column;
+    margin-left:10px;
+
+}
+row{
+    flex-direction: column;
+}
+footer{
+    flex-direction: column;
+}

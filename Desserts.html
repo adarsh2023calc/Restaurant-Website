@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desserts</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    
+  body {
+    background-image: url('dessert.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    }
+
+    .navbar-brand {
+    font-family: 'Pacifico', cursive;
+    box-shadow: 6px 6px 10px whitesmoke, -6px -6px 10px whitesmoke;
+    }
+
+    .breakfast-heading {
+      font-family: 'Pacifico', cursive;
+      font-size: 48px;
+      text-align: center;
+      margin: 20px 0;
+      color: whitesmoke;
+    }
+
+    .breakfast-item-card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      position: relative;
+      background-color: beige;
+    }
+
+    .breakfast-item-card .card-body {
+      position: relative;
+      box-shadow: 6px 6px 10px black, -6px -6px 10px rgb(160,82,45);
+    }
+
+    .item-name {
+      text-align: left;
+      font-family: 'Courier New', monospace;
+    }
+
+    .prices {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      transform: translateY(+30%);
+      font-family: 'Courier New', monospace;
+    }
+
+    .divider-line {
+      width: 100%;
+      border-bottom: 1px solid #ccc;
+      margin: 5px 0;
+    }
+
+    .card-text {
+      background-color: beige(255, 255, 255, 0.8);
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .veg-icon,
+    .nonveg-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    @media (max-width: 576px) {
+      .breakfast-heading {
+        font-size: 36px;
+      }
+
+      .breakfast-item-card {
+        max-width: 100%;
+      }
+
+      .card-body {
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .breakfast-heading {
+        font-size: 24px;
+      }
+    }
+
+    .total-cost-container {
+        text-align: center;
+        margin: 20px 0;
+        padding: 20px;
+        background-color: chocolate;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .total-cost-container h3 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'Courier New', monospace;
+    }
+
+    .total-cost-container p {
+        font-size: 20px;
+        color: black; 
+        margin: 10px 0;
+    }
+    
+    .total-cost-container b {
+        display: inline-block;
+        width: 120px; 
+        text-align: left;
+    }
+    
+    .quantity-input {
+        width: 60px; 
+        height: 30px; 
+        padding: 2px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        text-align: center;
+        margin-left: 10px; 
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Ratatouille</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h1 class="breakfast-heading">Desserts</h1>
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="5.00" data-member-price="3.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Cannoli</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Crispy pastry tubes filled with sweetened ricotta cheese<br> and chocolate chips.</p>
+            <div class="prices">
+              <p>Guest Price: $5.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $3.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="8.00" data-member-price="6.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Panna Cotta</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text"> A silky, creamy dessert made with sweetened cream and <br>topped with fruit coulis or caramel sauce.</p>
+            <div class="prices">
+              <p>Guest Price: $8.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $6.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="10.00" data-member-price="7.75" onclick="calculateTotal()">
+              <img class="nonveg-icon" src="non-veg-icon.svg" alt="nonveg-icon"><b>Amaretti Cookies</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Soft almond cookies with a delicate marzipan flavor.</p>
+            <div class="prices">
+              <p>Guest Price: $10.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $7.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="8.00" data-member-price="6.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Gelato</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text"> Italian-style ice cream available in various flavors such as<br> pistachio, hazelnut, and stracciatella.</p>
+            <div class="prices">
+              <p>Guest Price: $8.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $6.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="5.00" data-member-price="4.25" onclick="calculateTotal()">
+              <img class="nonveg-icon" src="non-veg-icon.svg" alt="nonveg-icon"><b>Biscotti</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">Crunchy almond cookies perfect for dipping into Vin Santo,<br> a sweet Italian dessert wine.</p>
+            <div class="prices">
+              <p>Guest Price: $5.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $4.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="10.00" data-member-price="8.25" onclick="calculateTotal()">
+              <img class="nonveg-icon" src="non-veg-icon.svg" alt="nonveg-icon"><b>Torta Caprese</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A flourless chocolate and almond cake originating from <br>Capri, typically served with a dusting of powdered sugar.</p>
+            <div class="prices">
+              <p>Guest Price: $10.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $8.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="8.00" data-member-price="6.75" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Cassata Siciliana</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A Sicilian sponge cake filled with ricotta and candied <br>fruit, covered with marzipan icing.</p>
+            <div class="prices">
+              <p>Guest Price: $8.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $6.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="11.00" data-member-price="9.25" onclick="calculateTotal()">
+              <img class="nonveg-icon" src="non-veg-icon.svg" alt="nonveg-icon"><b>Sfogliatella Riccia</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A flaky pastry filled with semolina, ricotta, and candied<br> fruit, hailing from Naples.</p>
+            <div class="prices">
+              <p>Guest Price: $11.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $9.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="8.00" data-member-price="6.75" onclick="calculateTotal()">
+              <img class="nonveg-icon" src="non-veg-icon.svg" alt="nonveg-icon"><b>Zabaione</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A creamy custard dessert made with egg yolks, sugar,<br> and Marsala wine, often served with fresh berries.</p>
+            <div class="prices">
+              <p>Guest Price: $8.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $6.75</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4">
+        <div class="card breakfast-item-card">
+          <div class="card-body">
+            <h4 class="card-title item-name">
+              <input type="checkbox" name="item-selection" data-guest-price="8.00" data-member-price="7.25" onclick="calculateTotal()">
+              <img class="veg-icon" src="veg-icon.svg" alt="veg-icon"><b>Crostata di Frutta</b>
+              <input type="number" name="quantity" min="1" value="1" class="quantity-input" onchange="calculateTotal()">
+            </h4>
+            <p class="card-text">A delightful fruit tart filled with pastry cream and <br>topped with seasonal fresh fruits.</p>
+            <div class="prices">
+              <p>Guest Price: $8.00</p>
+              <div class="divider-line"></div>
+              <p>Member Price: $7.25</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="total-cost-container">
+    <h3>Total Cost:</h3>
+    <p><b>Guest Price:</b> <span id="total-guest-cost">$0.00</span></p>
+    <p><b>Member Price:</b> <span id="total-member-cost">$0.00</span></p>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+
+
+    function calculateTotal() {
+    
+    const selectedItems = document.querySelectorAll('input[type="checkbox"]:checked');
+  
+    let totalGuestCost = 0;
+    let totalMemberCost = 0;
+  
+    
+    selectedItems.forEach((item) => {
+      const priceGuest = parseFloat(item.getAttribute('data-guest-price'));
+      const priceMember = parseFloat(item.getAttribute('data-member-price'));
+  
+      
+      const quantity = parseInt(item.parentElement.querySelector('.quantity-input').value);
+  
+      totalGuestCost += priceGuest * quantity;
+      totalMemberCost += priceMember * quantity;
+    });
+  
+    
+    const totalGuestCostElement = document.getElementById('total-guest-cost');
+    const totalMemberCostElement = document.getElementById('total-member-cost');
+  
+    totalGuestCostElement.textContent = `$${totalGuestCost.toFixed(2)}`;
+    totalMemberCostElement.textContent = `$${totalMemberCost.toFixed(2)}`;
+  }
+  
+  </script>
+</body>
+
+</html>
